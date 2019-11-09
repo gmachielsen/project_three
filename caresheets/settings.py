@@ -26,8 +26,8 @@ SECRET_KEY = '$_9ja&6=vwx3cequ4tyh=62y9nqxk6==t&a4eikgq6#zwz*n)e'
 DEBUG = True
 
 ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
-
-
+# 127.0.0.1
+# codeinstitutecaresheets.herokuapp.com
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'caresheets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
