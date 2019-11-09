@@ -25,7 +25,7 @@ SECRET_KEY = '$_9ja&6=vwx3cequ4tyh=62y9nqxk6==t&a4eikgq6#zwz*n)e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 # 127.0.0.1
 # codeinstitutecaresheets.herokuapp.com
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'posts',
 ]
 
@@ -120,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
