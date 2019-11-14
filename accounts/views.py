@@ -9,10 +9,10 @@ def register(response):
         form = UserCreationForm(response.POST)
         if form.is_valid():
             form.save()
-        return redirect('post_list')
+        return redirect('login')
     else:
         form = UserCreationForm()
-    return render(response, "registration/login.html", {"form": form})
+    return render(response, "registration/register.html", {"form": form})
 
 # def login(request):
 #     if request.method == 'POST':
