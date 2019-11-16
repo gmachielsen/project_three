@@ -7,7 +7,15 @@ Login
 
 <form class="form-group" action="" method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  <table>
+    <tr>
+      <label for="username">Username</label>
+      <td>{{ form.username }}</td>
+      <label for="password">Password</label>
+      <td>{{ form.password }}</td>
+    </tr>
+  </table>
+  <!-- {{ form.as_p }} -->
   <button type="submit" class="btn btn-success">Login</button>
   <a href="{% url 'password_reset' %}">Forgot your password?</a>
 </form>
