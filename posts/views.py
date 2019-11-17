@@ -7,8 +7,8 @@ def post_list(request):
 def post_detail(request):
     return render(request, 'posts/post_detail.html', {})
 
-def post_form(request):
-    return render(request, 'posts/post_form.html', {})
+# def post_form(request):
+#     return render(request, 'posts/post_form.html', {})
 
 def post_form(request):
 

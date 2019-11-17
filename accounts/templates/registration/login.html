@@ -1,22 +1,33 @@
 {% extends 'base.html' %}
-
+{% load bootstrap_tags %}
 {% block title %}
 Login
 {% endblock %}
 {% block content %}
-
-<form class="form-group" action="" method="post">
-  {% csrf_token %}
-  <table>
-    <tr>
-      <label for="username">Username</label>
-      <td>{{ form.username }}</td>
-      <label for="password">Password</label>
-      <td>{{ form.password }}</td>
-    </tr>
-  </table>
-  <!-- {{ form.as_p }} -->
-  <button type="submit" class="btn btn-success">Login</button>
-  <a href="{% url 'password_reset' %}">Forgot your password?</a>
-</form>
+<br/>
+<br/>
+<br/>
+<div class="row justify-content-center">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <form class="form-group" action="" method="post">
+          {% csrf_token %}
+          {{ form | as_bootstrap }}
+          <!-- <table>
+            <tr>
+              <label for="username">Username</label>
+              <td>{{ form.username }}</td>
+              <label for="password">Password</label>
+              <td>{{ form.password }}</td>
+            </tr>
+          </table> -->
+          <!-- {{ form.as_p }} -->
+          <button type="submit" class="btn btn-success">Login</button>
+          <a href="{% url 'password_reset' %}">Forgot your password?</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
  {% endblock %}

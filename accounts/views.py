@@ -12,6 +12,7 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
+
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             raw_password1 = form.cleaned_data.get('password1')
@@ -26,6 +27,9 @@ def register(request):
 
     return render(request, "registration/register.html", {"form": form})
 
+
+def change_password(request):
+    return render(request, 'registration/password_change_form.html', {"form": form})
 # def login(request):
 #     if request.method == 'POST':
 #         login = AuthenticationForm(request.POST)
