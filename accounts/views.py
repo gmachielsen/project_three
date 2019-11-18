@@ -28,8 +28,7 @@ def register(request):
     return render(request, "registration/register.html", {"form": form})
 
 
-def change_password(request):
-    return render(request, 'registration/password_change_form.html', {"form": form})
+
 # def login(request):
 #     if request.method == 'POST':
 #         login = AuthenticationForm(request.POST)
