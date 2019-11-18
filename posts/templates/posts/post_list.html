@@ -2,4 +2,14 @@
 
 {% block content %}
 <p>Hello World!</p>
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% for animal in animals %}
+                <h4>{{animal.latinName}}</h4>
+
+     {% endfor %}
+</div>
+
 {% endblock %}

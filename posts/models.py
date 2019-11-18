@@ -48,4 +48,4 @@ class Animal(models.Model):
 
 class AnimalImages(models.Model):
     animalpictures = models.ForeignKey(Animal, related_name="images", on_delete=models.CASCADE)
-    image = models.ImageField()
+    images = models.ImageField()
