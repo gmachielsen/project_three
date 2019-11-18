@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import AnimalForm
 from django.contrib import messages
-from .models import Animal
+from .models import Animal, AnimalImages
 
 
 def post_list(request):
     animals = Animal.objects.all()
     return render(request, 'posts/post_list.html', {'animals': animals})
 
-def post_detail(request):
-    return render(request, 'posts/post_detail.html', {})
+def post_detail(request, id):
+    animal = Animal.objects.get(pk=id)
+    animal_images = AnimalImages.objects.filter(pk=id)
+    return render(request, 'posts/post_detail.html', {"animal": animal, "animal_images": animal_images})
 
 # def post_form(request):
 #     return render(request, 'posts/post_form.html', {})
