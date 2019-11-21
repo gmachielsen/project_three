@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% load bootstrap_tags %}
+{% block head_style %}
+<link rel="stylesheet" href="{% static 'css/post_list.css' %}" type="text/css" />
+{{ block.super }}
+{% endblock %}
 {% block content %}
 <p>Hello World!</p>
 
@@ -11,7 +16,7 @@
           <div class="card-body">
             <a href="{% url 'post_detail' animal.id %}">
             <div class="picture">
-              <img style="width= 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
+              <img src="{{MEDIA_URL}}{{animal.image}}" alt="">
             </div>
             <h4>{{animal.latinName}}</h4>
             </a>
