@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
     path('accounts/password_change/', auth_views.PasswordChangeView.as_view(template_name='registration/password_change_form.html'),),
-    path('accounts/', include("django.contrib.auth.urls")),
+    # path('accounts/', include("django.contrib.auth.urls")),
     path('register', views.register, name= 'register'),
 ]
