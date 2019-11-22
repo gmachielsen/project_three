@@ -7,4 +7,5 @@ urlpatterns = [
     path('password_change/', auth_views.PasswordChangeView.as_view(template_name='registration/custom_password_change_form.html'), name='custom_password'),
     path('accounts/', include("django.contrib.auth.urls")),
     path('register', views.register, name= 'register'),
+    path('profile', views.profile, name='profile')
 ]

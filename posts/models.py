@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+# from django.template.defaultfilters import slugify # new
+from django.urls import reverse
+
 class Animal(models.Model):
     # ANIMALS = (
     #     ('X', 'Choose animalfamily')
@@ -23,6 +26,7 @@ class Animal(models.Model):
         ('D', 'Cites D or none'),
     )
 
+    title = models.CharField(blank=True, null=True, max_length=120)
     latinName = models.CharField(blank=True, null=True, max_length=120)
     # TypeofAnimal = models.CharField(blank=True, null=True, default='X', choises=ANIMALS)
     reptiletype = models.CharField(blank=True, null=True, max_length=1, default='X', choices=REPTILES)
@@ -38,13 +42,22 @@ class Animal(models.Model):
     breeding = models.TextField(blank=True, null=True, max_length= 500)
     incubation = models.TextField(blank=True, null=True, max_length= 500)
     author = models.ForeignKey(User, related_name='posts', null=False, default=1, on_delete=models.SET_DEFAULT)
+    slug = models.SlugField(default="post_detail", null=False, unique=True)
     # created_date = models.DateTimeField(auto_now_add=True, null=True)
     # published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     # views = models.IntegerField(default=0)
 
 
     def __str__(self):
-        return self.latinName
+        return self.title
+
+    # def get_absolute_url(self):
+    #     return reverse('post_detail', kwargs={'slug': self.slug})
+    #
+    # def save(self, *args, **kwargs): # new
+    #     if not self.slug:
+    #         self.slug = slugify(self.title)
+    #     return super().save(*args, **kwargs)
 
 class AnimalImages(models.Model):
     animalpictures = models.ForeignKey(Animal, related_name="images", on_delete=models.CASCADE)

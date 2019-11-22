@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # codeinstitutecaresheets.herokuapp.com
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'accounts',
     'posts',
+
 ]
 
 MIDDLEWARE = [
@@ -131,6 +133,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
+# emaillogin_project/settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# AUTH_USER_MODEL = 'accounts.CustomUser'

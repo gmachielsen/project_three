@@ -5,6 +5,7 @@ from .forms import RegisterForm
 from django.contrib.auth import login, authenticate
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.forms import AuthenticationForm
+from posts.models import Animal
 
 def register(request):
     if request.method == "POST":
@@ -26,7 +27,9 @@ def register(request):
 
     return render(request, "registration/register.html", {"form": form})
 
-
+def profile(request):
+    animal_caresheets = Animal.objects.all()
+    return render(request, "profile/profile.html", {"animal_caresheets": animal_caresheets})
 
 # def login(request):
 #     if request.method == 'POST':
