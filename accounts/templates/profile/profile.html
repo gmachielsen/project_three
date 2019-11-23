@@ -9,9 +9,9 @@ Profile
 <li class="nav-item">
   <a class="nav-link" href="{% url 'custom_password' %}">Change password</a>
 </li>
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a class="nav-link" href="{% url 'password_reset' %}">Change passwordreset</a>
-</li>
+</li> -->
 <li class="nav-item">
   <a class="nav-link" href="{% url 'post_form' %}">Post Caresheet</a>
 </li>
@@ -30,7 +30,7 @@ Profile
             </div>
             <h4>{{animal.latinName}}</h4>
             </a>
-            <a class="button btn" href="{% url 'post_form' %}">update</a>
+            <a class="button btn" href="{% url 'edit_post' animal.id %}">update</a>
             <a href="{% url 'delete_post' animal.id %}" class="btn btn-warning">Delete</a>
           </div>
         </div>

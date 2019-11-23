@@ -22,7 +22,7 @@ def register(request):
             user = authenticate(username=username, password=raw_password1)
             login(request, user)
 
-        return redirect('post_list')
+        return redirect('profile')
     else:
         form = RegisterForm()
 
