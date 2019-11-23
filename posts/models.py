@@ -26,7 +26,7 @@ class Animal(models.Model):
         ('D', 'Cites D or none'),
     )
 
-    title = models.CharField(blank=True, null=True, max_length=120)
+    # title = models.CharField(blank=True, null=True, max_length=120)
     latinName = models.CharField(blank=True, null=True, max_length=120)
     # TypeofAnimal = models.CharField(blank=True, null=True, default='X', choises=ANIMALS)
     reptiletype = models.CharField(blank=True, null=True, max_length=1, default='X', choices=REPTILES)
@@ -52,7 +52,7 @@ class Animal(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return self.latinName
 
     # def get_absolute_url(self):
     #     return reverse('post_detail', kwargs={'slug': self.slug})
