@@ -45,7 +45,7 @@ class Animal(models.Model):
     breeding = models.TextField(blank=True, null=True, max_length= 500)
     incubation = models.TextField(blank=True, null=True, max_length= 500)
     author = models.ForeignKey(User, related_name='posts', null=False, default=1, on_delete=models.SET_DEFAULT)
-    slug = models.SlugField(default="post_detail", null=False, unique=True)
+    # slug = models.SlugField(default="post_detail", null=False, unique=True)
     # created_date = models.DateTimeField(auto_now_add=True, null=True)
     # published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     # views = models.IntegerField(default=0)
