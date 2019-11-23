@@ -13,7 +13,6 @@ def post_list(request):
 
 def post_detail(request, id):
     animal = Animal.objects.get(pk=id)
-    slug = animal
     # slug = Animal.kwargs.get('slug')
     # animal = Animal.objects.get(slug=slug)
 # def post_detail(request, id):
@@ -23,7 +22,7 @@ def post_detail(request, id):
     # animal = Animal.objects.get(pk=id)
     # animal_images = AnimalImages.objects.filter(pk=id)
     # return render(request, 'posts/post_detail.html', {"animal": animal, "animal_images": animal_images})
-    return render(request, 'posts/post_detail.html', {"animal": animal, "slug": slug })
+    return render(request, 'posts/post_detail.html', {"animal": animal})
 
 
 def post_form(request):
@@ -44,17 +43,25 @@ def post_form(request):
         form = AnimalForm()
         return render(request, 'posts/post_form.html', {'form': form})
 
+def delete_post(request, id):
+    animal = Animal.objects.get(pk=id)
+    animal.delete()
+    messages.success(request, ("animalcaresheet successfully deleted"))
+    return redirect('post_list')
 
-def edit_post(request, id):
+
+def edit_post(request):
     # Load the post we're changing, from the DB
-    post = Animal.objects.get(Animal, pk=id)
+    animal = Animal.objects.get(pk=id)
+    form = AnimalForm(instance=animal, data=request.GET, files=request.FILES)
 
+    print('Files : {}'.format(request.Files))
     if request.method == "POST":
-        form = AnimalForm(request.Animal, request.FILES, instance=post)
+        form = AnimalForm(instance=animal, data=request.GET, files=request.FILES)
         return update_post(form)
     else:
-        form = Animal(instance=post)
-        return render(request, "posts/post_form.html", {"form": form})
+        raise(error)
+    return render(request, "posts/edit_post.html", {"form": form})
 
 
 def update_post(form):

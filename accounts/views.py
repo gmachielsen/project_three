@@ -2,6 +2,7 @@
 # from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import RegisterForm
+from posts.forms import AnimalForm
 from django.contrib.auth import login, authenticate
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -30,6 +31,10 @@ def register(request):
 def profile(request):
     animal_caresheets = Animal.objects.all()
     return render(request, "profile/profile.html", {"animal_caresheets": animal_caresheets})
+
+
+
+
 
 # def login(request):
 #     if request.method == 'POST':

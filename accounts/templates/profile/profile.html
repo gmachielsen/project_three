@@ -30,6 +30,8 @@ Profile
             </div>
             <h4>{{animal.latinName}}</h4>
             </a>
+            <a class="button btn" href="{% url 'post_form' %}">update</a>
+            <a href="{% url 'delete_post' animal.id %}" class="btn btn-warning">Delete</a>
           </div>
         </div>
       </div>
