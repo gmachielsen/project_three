@@ -1,15 +1,30 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .forms import AnimalForm
+from .forms import AnimalForm, AnimalSearchForm
 from django.contrib import messages
 from .models import Animal, AnimalImages
-
-from django.views.generic.detail import DetailView
+from django.db.models import Q
+# from django.views.generic.detail import DetailView
 
 
 
 def post_list(request):
     animals = Animal.objects.all()
-    return render(request, 'posts/post_list.html', {'animals': animals})
+    search_form = AnimalSearchForm()
+    return render(request, 'posts/post_list.html', {'animals': animals, 'search_form': search_form})
+
+def filter_posts_list(request):
+    animals = Animal.objects.all()
+
+    if 'search' in request.GET:
+        search = request.GET['search']
+
+        query_by_name = Q(name__contains=search)
+        query_by_description = Q(description__contains=search)
+
+        animals = animals.filter(query_by_name | query_by_description)
+
+        search_form = AnimalSearchForm(request.GET)
+    return render(request, "posts/filter_post.html", {'animals': animals, 'search_form': search_form})
 
 def post_detail(request, id):
     animal = Animal.objects.get(pk=id)

@@ -29,7 +29,8 @@ def register(request):
     return render(request, "registration/register.html", {"form": form})
 
 def profile(request):
-    animal_caresheets = Animal.objects.all()
+    user = animal.objects.get()
+    animal_caresheets = Animal.objects.filter(user)
     return render(request, "profile/profile.html", {"animal_caresheets": animal_caresheets})
 
 

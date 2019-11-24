@@ -38,6 +38,8 @@ class Animal(models.Model):
     behaviour = models.TextField(blank=True, null=True, max_length= 500)
     feeding = models.TextField(blank=True, null=True, max_length= 500)
     enclosure = models.TextField(blank=True, null=True, max_length= 500)
+    lighting = models.TextField(blank=True, null=True, max_length= 500)
+    heating = models.TextField(blank=True, null=True, max_length= 500)
     temperature = models.TextField(blank=True, null=True, max_length=300)
     sex= models.TextField(blank=True, null=True, max_length= 500)
     male = models.ImageField(blank=True, null=True, upload_to="images")

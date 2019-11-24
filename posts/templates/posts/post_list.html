@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
-{% load bootstrap_tags %}
+<!-- {% load bootstrap_tags %} -->
 {% load static %}
 {% block head_style %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/post_list.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
 {% endblock head_style %}
 {% block content %}
 <p>Hello World!</p>
 
+<form method='get' action="{% url 'filter_posts_list' %}" enctype="multipart/form-data">
+      {{ search_form }}
+      <input type="submit" class="btn btn-succes" value="Search"/>
+</form>
+
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         {% for animal in animals %}
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="col-xs-12 col-sm-3 col-md-2">
         <div class="card">
           <div class="card-body">
             <a href="{% url 'post_detail' animal.id %}">
