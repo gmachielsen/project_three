@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-<!-- {% load bootstrap_tags %} -->
+{% load bootstrap_tags %}
 {% load static %}
+
 {% block head_style %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
 {% endblock head_style %}
 {% block content %}
 <p>Hello World!</p>

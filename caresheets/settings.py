@@ -25,7 +25,7 @@ SECRET_KEY = '$_9ja&6=vwx3cequ4tyh=62y9nqxk6==t&a4eikgq6#zwz*n)e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
 # 127.0.0.1
 # codeinstitutecaresheets.herokuapp.com
 # Application definition
@@ -67,7 +67,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-
+                # "django.core.context_processors.static",
             ],
         },
     },
@@ -123,19 +123,26 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "css"),
+#     os.path.join(BASE_DIR, "media"),
+# ]
 STATIC_URL = '/static/'
-
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_URL = '/static/'
+#
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT =  os.path.join(BASE_DIR,'static')
-
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# # STATIC_ROOT =  os.path.join(BASE_DIR,'static')
+#
 # STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
+#     '/project_three/caresheets/static',
 # ]
 # emaillogin_project/settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
