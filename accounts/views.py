@@ -7,6 +7,7 @@ from django.contrib.auth import login, authenticate
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.forms import AuthenticationForm
 from posts.models import Animal
+from django.contrib.auth.models import User
 
 def register(request):
     if request.method == "POST":
@@ -29,8 +30,8 @@ def register(request):
     return render(request, "registration/register.html", {"form": form})
 
 def profile(request):
-    user = animal.objects.get()
-    animal_caresheets = Animal.objects.filter(user)
+    # user = User
+    animal_caresheets = Animal.objects.filter(author_id=request.user)
     return render(request, "profile/profile.html", {"animal_caresheets": animal_caresheets})
 
 

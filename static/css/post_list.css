@@ -5,3 +5,7 @@ img {
 h4 {
   color: red !important;
 }
+
+.card {
+  background-color: blue !important;
+}
