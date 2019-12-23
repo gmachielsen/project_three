@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
-{% load bootstrap_tags %}
 {% load static %}
+{% load bootstrap_tags %}
 
-{% block head_style %}
+
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+{% endblock %}
+<!-- {% block head_style %}
 {{ block.super }}
   <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
-{% endblock head_style %}
+{% endblock head_style %} -->
 {% block content %}
-<p>Hello World!</p>
 
 
 
-
+<br/>
+<br/>
+<br/>
 <div class="container-fluid">
     <div class="row justify-content-center">
         {% for animal in animals %}
@@ -32,5 +37,8 @@
       {% endfor %}
     </div>
 </div>
+<br/>
+<br/>
+<br/>
 
 {% endblock %}

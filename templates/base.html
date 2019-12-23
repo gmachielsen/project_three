@@ -1,18 +1,23 @@
-<!doctype html>
-{% load staticfiles %}
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://use.fontawesome.com/f78ea8c559.js"></script> -->
+    <script src="https://use.fontawesome.com/f78ea8c559.js"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" />
+
     <script src="https://kit.fontawesome.com/c77f12f28c.js" crossorigin="anonymous"></script>
     <title>Caresheets</title>
+    {% block links %}
+
+    {% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

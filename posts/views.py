@@ -32,7 +32,9 @@ def post_form(request):
         form = AnimalForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
             messages.success(request, ("animalcaresheet successfully added"))
             return redirect('post_list')
 
