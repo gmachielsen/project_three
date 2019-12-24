@@ -4,7 +4,9 @@ from django.contrib import messages
 from .models import Animal, AnimalImages
 # from django.db.models import Q
 # from django.views.generic.detail import DetailView
-
+def do_search(request):
+    posts = Animal.objects.filter(latinName__icontains=request.GET['q'])
+    return render(request, 'posts/post_list.html', {"posts": posts})
 
 
 def post_list(request):

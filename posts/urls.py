@@ -8,5 +8,5 @@ urlpatterns = [
     path('post_form.html', views.post_form, name='post_form'),
     path('post/<id>/edit', views.edit_post, name="edit_post"),
     path('post/<id>/delete', views.delete_post, name="delete_post"),
-
+    path("", views.do_search, name="search")
 ]

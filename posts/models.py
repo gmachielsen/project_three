@@ -1,9 +1,11 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-
+from django.db.models import Q
 # from django.template.defaultfilters import slugify # new
 from django.urls import reverse
+
+
 
 class Animal(models.Model):
     # ANIMALS = (
@@ -51,7 +53,6 @@ class Animal(models.Model):
     # created_date = models.DateTimeField(auto_now_add=True, null=True)
     # published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     # views = models.IntegerField(default=0)
-
 
     def __str__(self):
         return self.latinName
