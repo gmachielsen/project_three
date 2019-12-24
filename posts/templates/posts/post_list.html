@@ -4,7 +4,7 @@
 
 
 {% block links %}
-  <link rel="stylesheet" href="{% static 'css/list.css' %}">
+  <link rel="stylesheet" href="{% static 'css/product_list.css' %}">
 {% endblock %}
 <!-- {% block head_style %}
 {{ block.super }}
@@ -13,10 +13,14 @@
 {% block content %}
 
 
-<form action="{% url 'search' %}" method="get" class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+                           <!-- <form  method="get" class="form-inline my-2 my-lg-0">
+                             <input type="text"  placeholder="Titel, nummer, etc..." class="{{ search_form.search }}"/>
+                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                           </form> -->
+                           <form class="form-inline my-2 my-lg-0">
+                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                           </form>
 <br/>
 <br/>
 <br/>

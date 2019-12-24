@@ -5,7 +5,7 @@ class AnimalSearchForm(forms.ModelForm):
     search=forms.CharField(required=False, label="Search")
     class Meta:
         model = Animal
-        fields = ["search"]
+        fields = ["search", "latinName", "shorttext"]
 
 class AnimalForm(forms.ModelForm):
     class Meta:

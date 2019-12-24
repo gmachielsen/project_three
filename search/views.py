@@ -5,5 +5,5 @@ from posts.models import Animal
 
 
 def do_search(request):
-    posts = Animal.objects.filter(name__icontains=request.GET['q'])
-    return render(request, "product_list.html", {"posts": posts})
+    products = Product.objects.filter(name__icontains=request.GET['q'])
+    return render(request, "products.html", {"products": products})
