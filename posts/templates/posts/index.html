@@ -11,8 +11,8 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-12">
-        <div class="animalcaresheets">
-          <img src="{{MEDIA_URL}}/State_reptile_collage.jpg"
+        <div style="background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.78)),  url("../../media/State_reptile_collage.jpg"); height: 95vh; background-size: cover, padding-bottom: 100px;" class="animalcaresheets">
+          <!-- <img src="{{MEDIA_URL}}/State_reptile_collage.jpg" -->
          <div class="hero-text">
            <h6>REPTILE CARESHEETS</h6>
            <p>Knowledge is better reptilecare</p>
@@ -24,7 +24,7 @@
     <div class="col-sm-12">
       <br/>
       <br/>
-      <div style="background-color: red;"class="visit-button">
+      <div style="text-align: center;" class="visit-button">
        <a  id="text" href="{% url 'post_list' %}"><button>Go to caresheets</button></a>
       </div>
       <br/>
