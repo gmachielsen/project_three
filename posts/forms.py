@@ -10,6 +10,6 @@ class AnimalSearchForm(forms.ModelForm):
 class AnimalForm(forms.ModelForm):
     class Meta:
         model = Animal
-        fields = ["latinName", "reptiletype", "image", "cites", "size", "habitat", "shorttext", "behaviour", "feeding", "enclosure", "lighting", "heating", "temperature", "sex", "male", "female", "breeding", "incubation", "author"]
+        fields = ["latinName", "reptiletype", "image", "cites", "size", "habitat", "shorttext", "behaviour", "handling", "feeding", "water", "enclosure", "substrate", "lighting", "heating", "temperature", "cleaning", "sex", "male", "female", "breeding", "incubation", "health", "diseases", "author"]
         # model = AnimalImages
         # fields = ["images"]
