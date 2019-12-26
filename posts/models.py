@@ -14,10 +14,10 @@ class Animal(models.Model):
     # )
     REPTILES = (
         ('X', 'Choose type of reptile'),
-        ('C', 'Crocodile'),
-        ('L', 'Lizard'),
-        ('S', 'Snake'),
-        ('T', 'Turtle'),
+        ('Crocodile', 'Crocodile'),
+        ('Lizard', 'Lizard'),
+        ('Snake', 'Snake'),
+        ('Turtle', 'Turtle'),
     )
 
     CITES_SPECIES = (

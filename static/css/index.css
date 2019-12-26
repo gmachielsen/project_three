@@ -1,16 +1,74 @@
-.navbar {
-  background-color: black;
+.animalcaresheets {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.78)),  url("../../media/State_reptile_collage.jpg");
+    height: 95vh;
+    background-size: cover;
+    padding-bottom: 100px;
 }
 
-footer {
-  height: 1000px;
-  background-color: black;
+.hero-text {
+    letter-spacing: 6px;
+    font-size: 15px;
+    font-family: 'lora,serif';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: white;
 }
 
-#div_id_author {
-  visibility: hidden;
+.hero-text h6 {
+    font-size: 40px;
+    color: #d2d2d2;
+    text-shadow: 2px 2px 4px #000000;
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    font-size: 45px;
+    letter-spacing: 6px;
+    font-family: 'lora,serif';
+
 }
 
-form {
-  background-color: white;
+.hero-text button {
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: white;
+    background-color: transparent;
+    opacity: 1;
+    border: solid 3px black;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'lora,serif';
+    text-transform: uppercase;
+
+}
+
+.hero-text button:hover {
+    color: black;
+}
+
+.visit-button {
+  text-align: center;
+}
+
+.visit-button button {
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: transparent;
+    opacity: 1;
+    border: solid 3px black;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'lora,serif';
+    text-transform: uppercase;
+
+}
+
+.visit-button button:hover {
+    color: white;
+    background-color: black;
 }

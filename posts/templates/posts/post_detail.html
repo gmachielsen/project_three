@@ -1,37 +1,62 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap_tags %}
 
+
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/animal.css' %}">
+{% endblock %}
 {% block content %}
-<div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-xs-12">
+  <br/>
+  <br/>
+  <br/>
+  <div class="row">
         <div class="col-xs-12">
           <div class="title">
             <h4>{{ animal.latinName }}</h4>
           </div>
         </div>
-              {{ animal.cites }}
-              {{ animal.habitat }}
-              {{ animal.feeding }}
-              {{ animal.enclosure }}
-              {{ animal.temperature }}
-              {{ animal.sex }}
-              {{ animal.size }}
-              {{ animal.behaviour }}
-              {{ animal.shorttext }}
-              <img src="{{MEDIA_URL}}{{animal.male}}" alt="">
-              <img src="{{MEDIA_URL}}{{animal.female}}" alt="">
-              {{ animal.breeding }}
-              {{ animal.incubation }}
+        <br/>
+        <br/>
+        <br/>
+  </div>
+  <div class="row">
+        <div class="col-xs-0 col-md-1">
+        </div>
 
-            <div class="picture">
-              <img style="width: 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
-            </div>
-
+        <div class="col-sm-12 col-md-5">
+          <div class="picture">
+            <img style="width: 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-5">
+          <div class="intro">
+            <h5>Short description</h5>
+            <p><span>Cites:</span> {{ animal.cites }}</p>
+            <p><span>Habitat:</span> {{ animal.habitat }}</p>
+            <p><span>Size:</span> {{ animal.size }}</p>
+            <p><span>Short discription:</span> {{ animal.shorttext }}</p>
+          </div>
+          <br/>
+          <div class="body">
+            <h5>Detailed description</h5>
+            <p><span></span>{{ animal.feeding }}</p>
+            <p><span></span>{{ animal.enclosure }}</p>
+            <p><span></span>{{ animal.temperature }}</p>
+            <p><span></span>{{ animal.sex }}</p>
+            <p><span></span>{{ animal.behaviour }}</p>
+            <img src="{{MEDIA_URL}}{{animal.male}}" alt="">
+            <img src="{{MEDIA_URL}}{{animal.female}}" alt="">
+            <p><span></span>{{ animal.breeding }}</p>
+            <p><span></span>{{ animal.incubation }}</P>
+        </div>
       </div>
+    <div class="col-xs-0 col-md-1">
     </div>
-</div>
-
+  </div>
+  <br/>
+  <br/>
+  <br/>
 <!-- {{ animal.reptiletype }}
 {{ animal.cites }} -->
 {% endblock %}

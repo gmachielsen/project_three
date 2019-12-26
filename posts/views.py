@@ -50,6 +50,9 @@ from .models import Animal, AnimalImages
 #     context['animals'] = animals
 #     return render(request, 'posts/post_list.html', context)
 
+def index(request):
+    return render(request, 'posts/index.html', {})
+
 def post_list(request):
     animals = Animal.objects.all()
     search_term=''

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap_tags %}
+
+
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="animalcaresheets">
+         <div class="hero-text">
+           <h6>REPTILE CARESHEETS</h6>
+           <p>Knowledge is better reptilecare</p>
+           <a href="#text"><button>Bekijk</button></a>
+         </div>
+       </div>
+    </div>
+
+    <div class="col-sm-12">
+      <br/>
+      <br/>
+      <div class="visit-button">
+       <a  id="text" href="{% url 'post_list' %}"><button>Go to caresheets</button></a>
+      </div>
+      <br/>
+      <br/>
+    </div>
+</div>
+
+<script>
+  $("#artconcept a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      const hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function() {
+        window.location.hash = hash;
+      });
+    }
+  });
+</script>
+{% endblock %}
