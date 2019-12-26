@@ -10,7 +10,7 @@
 {% endblock %}
 {% block content %}
 <div class="row">
-    <div class="col-sm-12">
+    <div style="padding: 0;" class="col-sm-12">
         <div style="
           background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.78)),  url(../../media/State_reptile_collage.jpg);
           height: 95vh;
@@ -49,7 +49,7 @@
              text-align: center;
              cursor: pointer;
              font-family: 'lora,serif';
-             text-transform: uppercase;">Bekijk</button></a>
+             text-transform: uppercase;" onmouseover="this.style.color='black'">Bekijk</button></a>
          </div>
        </div>
     </div>
@@ -58,7 +58,18 @@
       <br/>
       <br/>
       <div style="text-align: center;" class="visit-button">
-       <a  id="text" href="{% url 'post_list' %}"><button>Go to caresheets</button></a>
+       <a  id="text" href="{% url 'post_list' %}"><button style="
+       outline: 0;
+       display: inline-block;
+       padding: 10px 25px;
+       color: black;
+       background-color: transparent;
+       opacity: 1;
+       border: solid 3px black;
+       text-align: center;
+       cursor: pointer;
+       font-family: 'lora,serif';
+       text-transform: uppercase;">Go to caresheets</button></a>
       </div>
       <br/>
       <br/>
