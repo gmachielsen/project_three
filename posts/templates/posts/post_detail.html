@@ -10,7 +10,7 @@
   <br/>
   <br/>
   <br/>
-  <div class="row">
+  <div style="justify-content: center;" class="row">
         <div class="col-xs-12">
           <div class="title">
             <h4>{{ animal.latinName }}</h4>
@@ -30,7 +30,11 @@
           </div>
         </div>
         <div class="col-sm-12 col-md-5">
-          <div class="intro">
+          <div style="
+            padding: 10px;
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;" class="intro">
             <h5>Short description</h5>
             <p><span>Cites:</span> {{ animal.cites }}</p>
             <p><span>Habitat:</span> {{ animal.habitat }}</p>
