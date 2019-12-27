@@ -69,6 +69,8 @@ def post_list(request):
 
 def post_detail(request, id):
     animal = Animal.objects.get(pk=id)
+    animal.views +=1
+    animal.save()
     # slug = Animal.kwargs.get('slug')
     # animal = Animal.objects.get(slug=slug)
 # def post_detail(request, id):
@@ -115,12 +117,24 @@ def edit_post(request, id):
         form = AnimalForm(request.POST, instance=animal)
         if form.is_valid():
             form.save()
-            return redirect(post_list)
+            return redirect('post_list')
     else:
         form = AnimalForm(instance=animal)
 
     return render(request, "posts/edit_post.html", {'form': form})
 
+def like_post(request, id):
+    post = Animal.objects.get(pk=id)
+    post.likes +=1
+    post.save()
+    return redirect("post_detail", id=post.id)
+
+
+def dislike_post(request, id):
+    post = Animal.objects.get(pk=id)
+    post.dislikes +=1
+    post.save()
+    return redirect("post_detail", id=post.id)
 # def edit_post(request):
 #     # Load the post we're changing, from the DB
 #     animal = Animal.objects.get(pk=id)

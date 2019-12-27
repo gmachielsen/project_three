@@ -61,6 +61,9 @@ class Animal(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     # published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
+
 
     # class Meta:
     #     ordering = ['-created']
