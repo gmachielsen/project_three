@@ -58,7 +58,7 @@ def index(request):
 #     return render(request, 'posts/index.html', {})
 
 def post_list(request):
-    animals = Animal.objects.all()
+    animals = Animal.objects.all().order_by('-latinName')
     search_term=''
 
     if 'search' in request.GET:

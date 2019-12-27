@@ -4,40 +4,44 @@
 Profile
 {% endblock %}
 {% block content %}
-<h1>Hello profile!</h1>
-
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'custom_password' %}">Change password</a>
-</li>
-<!-- <li class="nav-item">
-  <a class="nav-link" href="{% url 'password_reset' %}">Change passwordreset</a>
-</li> -->
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'post_form' %}">Post Caresheet</a>
-</li>
-
-
-
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        {% for animal in animal_caresheets %}
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <a href="{% url 'post_detail' animal.id %}">
-            <div class="picture">
-              <img style="width: 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
-            </div>
-            <h4>{{animal.latinName}}</h4>
-            </a>
-            <a class="button btn" href="{% url 'edit_post' animal.id %}">update</a>
-            <a href="{% url 'delete_post' animal.id %}" class="btn btn-warning">Delete</a>
+<br/>
+<br/>
+<div class="row">
+  <!-- <div class="col-xs-12">
+    <h2 style="text-align: center;">Personal profile</h2>
+  </div> -->
+  <div class="col-xs-12 col-md-2"
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'custom_password' %}">Change password</a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" href="{% url 'password_reset' %}">Change passwordreset</a>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'post_form' %}">Post Caresheet</a>
+    </li>
+  </div>
+  <div class="col-xs-12 col-md-10 justify-content-center">
+      {% for animal in animal_caresheets %}
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <a href="{% url 'post_detail' animal.id %}">
+          <div class="picture">
+            <img style="width: 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
           </div>
+          <h4>{{animal.latinName}}</h4>
+          </a>
+          <a class="button btn" href="{% url 'edit_post' animal.id %}">update</a>
+          <a href="{% url 'delete_post' animal.id %}" class="btn btn-warning">Delete</a>
         </div>
       </div>
-      <br/>
-
-      {% endfor %}
     </div>
+    <br/>
+    {% endfor %}
+  </div>
 </div>
+<br/>
+<br/>
+<br/>
  {% endblock %}

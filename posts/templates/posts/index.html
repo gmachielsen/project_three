@@ -54,7 +54,7 @@
        </div>
     </div>
 
-    <div class="col-sm-12">
+    <div style="background-color: #f8f9fa;" class="col-sm-12">
       <br/>
       <br/>
       <div style="text-align: center;" class="visit-button">
@@ -69,14 +69,17 @@
        text-align: center;
        cursor: pointer;
        font-family: 'lora,serif';
-       text-transform: uppercase;">Go to caresheets</button></a>
+       text-transform: uppercase;">Search for caresheets</button></a>
       </div>
       <br/>
       <br/>
     </div>
 </div>
+<br/>
+<br/>
 <div style="justify-content: center" class="row">
-  <h3 >New Reptile Caresheets</h3>
+
+  <h3 >Newest Reptile Caresheets</h3>
   <br/>
   <br/>
   <br/>
@@ -99,7 +102,38 @@
       </div>
       <br/>
       {% endfor %}
+
 </div>
+{% if user.is_authenticated %}
+<<h1>Hello</h1>
+{% else %}
+<div class="row justify-content-center">
+
+  <div class="col-xs-12">
+    <br/>
+    <br/>
+    <br/>
+    <h2 style="text-align: center;">Do you have knowledge about Reptiles? Feel free to register and write a caresheet</h2>
+    <br/>
+    <br/>
+
+      <a style="text-align: center;" class="nav-link" href="{% url 'register' %}"><button style="
+      outline: 0;
+      display: inline-block;
+      padding: 10px 25px;
+      color: black;
+      background-color: transparent;
+      opacity: 1;
+      border: solid 3px black;
+      text-align: center;
+      cursor: pointer;
+      font-family: 'lora,serif';
+      text-transform: uppercase;">Register</button></a>
+  </div>
+</div>
+{% endif %}
+<br/>
+<br/>
 <script>
   $("#artconcept a").on('click', function(event) {
     if (this.hash !== "") {
