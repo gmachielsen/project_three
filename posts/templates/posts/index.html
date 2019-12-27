@@ -75,7 +75,31 @@
       <br/>
     </div>
 </div>
+<div style="justify-content: center" class="row">
+  <h3 >New Reptile Caresheets</h3>
+  <br/>
+  <br/>
+  <br/>
 
+</div>
+
+    <div class="row justify-content-center">
+        {% for animal in animals %}
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <a href="{% url 'post_detail' animal.id %}">
+            <div class="picture">
+              <img style="width: 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
+            </div>
+            <h4 style="text-align: center;">{{animal.latinName}}</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+      <br/>
+      {% endfor %}
+</div>
 <script>
   $("#artconcept a").on('click', function(event) {
     if (this.hash !== "") {

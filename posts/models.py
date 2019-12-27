@@ -14,10 +14,10 @@ class Animal(models.Model):
     # )
     REPTILES = (
         ('X', 'Choose type of reptile'),
-        ('Crocodile', 'Crocodile'),
-        ('Lizard', 'Lizard'),
-        ('Snake', 'Snake'),
-        ('Turtle', 'Turtle'),
+        ('C', 'Crocodile'),
+        ('L', 'Lizard'),
+        ('S', 'Snake'),
+        ('T', 'Turtle'),
     )
 
     CITES_SPECIES = (
@@ -57,9 +57,13 @@ class Animal(models.Model):
     diseases = models.TextField(blank=True, null=True, max_length= 3000)
     author = models.ForeignKey(User, related_name='posts', null=False, default=1, on_delete=models.SET_DEFAULT)
     # slug = models.SlugField(default="post_detail", null=False, unique=True)
-    # created_date = models.DateTimeField(auto_now_add=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
     # published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
-    # views = models.IntegerField(default=0)
+    views = models.IntegerField(default=0)
+
+    # class Meta:
+    #     ordering = ['-created']
 
     def __str__(self):
         return self.latinName

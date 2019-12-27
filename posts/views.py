@@ -51,7 +51,11 @@ from .models import Animal, AnimalImages
 #     return render(request, 'posts/post_list.html', context)
 
 def index(request):
-    return render(request, 'posts/index.html', {})
+    animals = Animal.objects.all().order_by('-created')
+    return render(request, 'posts/index.html', {"animals": animals})
+
+# def index(request):
+#     return render(request, 'posts/index.html', {})
 
 def post_list(request):
     animals = Animal.objects.all()
