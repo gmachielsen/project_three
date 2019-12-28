@@ -7,6 +7,11 @@ class AnimalSearchForm(forms.ModelForm):
         model = Animal
         fields = ["search", "latinName", "shorttext"]
 
+class AnimalTypeForm(forms.ModelForm):
+    class Meta:
+        model = Animal
+        fields = ["reptiletype"]
+
 class AnimalForm(forms.ModelForm):
     class Meta:
         model = Animal

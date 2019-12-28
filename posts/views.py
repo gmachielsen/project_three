@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .forms import AnimalForm
+from .forms import AnimalForm, AnimalTypeForm
 from django.contrib import messages
 from .models import Animal, AnimalImages
 # from django.db.models import Q
@@ -49,6 +49,9 @@ from .models import Animal, AnimalImages
 #     animals = Animal.objects.all()
 #     context['animals'] = animals
 #     return render(request, 'posts/post_list.html', context)
+def filter(request):
+    filter = AnimalTypeForm()
+    return render(request, 'posts/post_list.html', {"animals": animals})
 
 def index(request):
     animals = Animal.objects.all().order_by('-created')
@@ -58,13 +61,14 @@ def index(request):
 #     return render(request, 'posts/index.html', {})
 
 def post_list(request):
+    filter = AnimalTypeForm()
     animals = Animal.objects.all().order_by('-latinName')
     search_term=''
 
     if 'search' in request.GET:
         search_term = request.GET['search']
         animals = animals.filter(latinName__icontains=search_term)
-    return render(request, 'posts/post_list.html', {'animals': animals, 'search_term': search_term})
+    return render(request, 'posts/post_list.html', {'animals': animals, 'search_term': search_term, "filter": filter})
 
 
 def post_detail(request, id):
