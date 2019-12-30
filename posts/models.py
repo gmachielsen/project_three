@@ -31,7 +31,7 @@ class Animal(models.Model):
     # title = models.CharField(blank=True, null=True, max_length=120)
     latinName = models.CharField(blank=True, null=True, max_length=120)
     # TypeofAnimal = models.CharField(blank=True, null=True, default='X', choises=ANIMALS)
-    reptiletype = models.CharField(blank=True, null=True, max_length=1, default='X', choices=REPTILES)
+    reptiletype = models.CharField(max_length=7, default='X', choices=REPTILES)
     image = models.ImageField(blank=True, null=True, upload_to="animal_images")
     cites = models.CharField(blank=True, null=True, max_length=1, default='X', choices=CITES_SPECIES)
     habitat = models.CharField(blank=True, null=True, max_length=120)

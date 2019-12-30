@@ -21,8 +21,11 @@
 </form>
 <br/>
 <label style="text-align: center">Choose type of reptile</label>
-<form class="form-inline">
-  <select class="form-control mr-sm-2" name="stijlen"><option value={{ filter.reptiletype }}</select>
+<form method="GET" class="form-inline">
+     {% csrf_token %}
+  <!-- <select class="form-control mr-sm-2" name="reptiletype"><option value="{{ filter.reptiletype }}"</select> -->
+    <div class="form-control mr-sm-2" name="reptiletype">{{ filter.reptiletype }}</div>
+
   <button class="btn btn-outline-success my-0 my-sm-0" type="submit">Search</button>
 </form>
 </div>

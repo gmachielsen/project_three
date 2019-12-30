@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .forms import AnimalForm, AnimalTypeForm
 from django.contrib import messages
 from .models import Animal, AnimalImages
-# from django.db.models import Q
+from django.db.models import Q
 # from django.views.generic.detail import DetailView
 
 # def do_search(request):
@@ -49,9 +49,9 @@ from .models import Animal, AnimalImages
 #     animals = Animal.objects.all()
 #     context['animals'] = animals
 #     return render(request, 'posts/post_list.html', context)
-def filter(request):
-    filter = AnimalTypeForm()
-    return render(request, 'posts/post_list.html', {"animals": animals})
+# def filter(request):
+#     filter = AnimalTypeForm()
+#     return render(request, 'posts/post_list.html', {"animals": animals})
 
 def index(request):
     animals = Animal.objects.all().order_by('-created')
@@ -61,8 +61,15 @@ def index(request):
 #     return render(request, 'posts/index.html', {})
 
 def post_list(request):
-    filter = AnimalTypeForm()
+
     animals = Animal.objects.all().order_by('-latinName')
+    # reptiles = Animal.objects.all()
+    filter = AnimalTypeForm(request.GET)
+    type = request.GET.get('reptiletype')
+    print(filter)
+    print(type)
+    animals = animals.filter(reptiletype=type)
+
     search_term=''
 
     if 'search' in request.GET:
