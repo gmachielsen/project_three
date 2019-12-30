@@ -70,8 +70,9 @@ def post_list(request):
     type = request.GET.get('reptiletype')
     print(filter)
     print(type)
-    if (type == 'X'):
-        animals = Animal.objects.all().order_by('-latinName')
+    # if (type == 'X' or None):
+    if (animals == animals):
+        animals = animals.filter()
     elif ('search' in request.GET):
         search_term = request.GET['search']
         animals = animals.filter(latinName__icontains=search_term)
