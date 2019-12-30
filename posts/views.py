@@ -59,6 +59,8 @@ def index(request):
 
 # def index(request):
 #     return render(request, 'posts/index.html', {})
+def is_valid_param(param):
+    return param is not '' and param is not None
 
 def post_list(request):
 
@@ -68,7 +70,10 @@ def post_list(request):
     type = request.GET.get('reptiletype')
     print(filter)
     print(type)
-    animals = animals.filter(reptiletype=type)
+    if (type == 'X'):
+        animals = Animal.objects.all().order_by('-latinName')
+    else:
+        animals = animals.filter(reptiletype=type)
 
     search_term=''
 
