@@ -72,14 +72,15 @@ def post_list(request):
     print(type)
     if (type == 'X'):
         animals = Animal.objects.all().order_by('-latinName')
+    elif ('search' in request.GET):
+        search_term = request.GET['search']
+        animals = animals.filter(latinName__icontains=search_term)
     else:
         animals = animals.filter(reptiletype=type)
 
     search_term=''
 
-    if 'search' in request.GET:
-        search_term = request.GET['search']
-        animals = animals.filter(latinName__icontains=search_term)
+
     return render(request, 'posts/post_list.html', {'animals': animals, 'search_term': search_term, "filter": filter})
 
 
