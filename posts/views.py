@@ -60,7 +60,6 @@ def index(request):
 # def index(request):
 #     return render(request, 'posts/index.html', {})
 
-
 def post_list(request):
 
     animals = Animal.objects.all().order_by('-latinName')
