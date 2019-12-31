@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ['127.0.0.1']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    # 'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -42,11 +41,6 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'accounts',
     'posts',
-    #
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.facebook'
 ]
 
 MIDDLEWARE = [
@@ -173,13 +167,3 @@ LOGOUT_REDIRECT_URL = "/"
 #     '/project_three/caresheets/static',
 # ]
 # emaillogin_project/settings.py
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-#
-# AUTHENTICATION_BACKENDS = (
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
-# )
-#
-# SITE_ID=1

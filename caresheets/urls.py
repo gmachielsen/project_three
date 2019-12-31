@@ -9,7 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
     path('', include('accounts.urls')),
-    path('accounts/', include('allauth.urls'))
     # path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT}),
     # path('static/<path:path>', serve, {'document_root': settings.STATIC_ROOT}),
     # path('search/', include(urls_search)),
