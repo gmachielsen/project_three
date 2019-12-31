@@ -59,6 +59,8 @@ def index(request):
 
 # def index(request):
 #     return render(request, 'posts/index.html', {})
+def is_valid_param(param):
+    return param is not '' and param is not None
 
 def post_list(request):
 
