@@ -25,7 +25,7 @@ SECRET_KEY = '$_9ja&6=vwx3cequ4tyh=62y9nqxk6==t&a4eikgq6#zwz*n)e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 # 127.0.0.1
 # codeinstitutecaresheets.herokuapp.com
 # Application definition
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -41,6 +42,11 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'accounts',
     'posts',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook'
 ]
 
 MIDDLEWARE = [
@@ -168,3 +174,10 @@ LOGOUT_REDIRECT_URL = "/"
 # ]
 # emaillogin_project/settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID=1
