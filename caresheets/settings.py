@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'accounts',
     'posts',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook'
+    #
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.facebook'
 ]
 
 MIDDLEWARE = [
@@ -173,11 +173,13 @@ LOGOUT_REDIRECT_URL = "/"
 #     '/project_three/caresheets/static',
 # ]
 # emaillogin_project/settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
 
-SITE_ID=1
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# )
+#
+# SITE_ID=1
