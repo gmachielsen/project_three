@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
+{% load socialaccount %}
+{% providers_media_js %}
 {% block title %}
 Login
 {% endblock %}
@@ -28,7 +30,14 @@ Login
           <button type="submit" class="btn btn-success">Login</button>
           <a href="{% url 'password_reset' %}">Forgot your password?</a>
         </form>
-
+        <button style="background-color: #4267b2;
+        border: none;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        padding: 15px 32px;
+        display: inline-block;
+        font-size: 16px;"><a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook Connect</a></button>
 
 
       </div>
