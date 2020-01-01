@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
-{% load socialaccount %}
-{% providers_media_js %}
 {% block title %}
 Login
 {% endblock %}
@@ -31,7 +29,7 @@ Login
           <a href="{% url 'password_reset' %}">Forgot your password?</a>
         </form>
 
-  
+
 
       </div>
     </div>

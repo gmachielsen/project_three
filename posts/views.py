@@ -63,23 +63,31 @@ def is_valid_param(param):
     return param is not '' and param is not None
 
 def post_list(request):
-
+    search_term=''
     animals = Animal.objects.all().order_by('-latinName')
     # reptiles = Animal.objects.all()
     filter = AnimalTypeForm(request.GET)
-    type = request.GET.get('reptiletype')
     print(filter)
-    print(type)
+    # print(type)
     # if (type == 'X' or None):
-    if (animals == animals):
-        animals = animals.filter()
-    elif ('search' in request.GET):
+    # if (animals == animals):
+    #     animals = animals.filter()
+    if ('search' in request.GET):
         search_term = request.GET['search']
         animals = animals.filter(latinName__icontains=search_term)
-    else:
+    elif('reptiletype' in request.GET):
+        type = request.GET.get('reptiletype')
         animals = animals.filter(reptiletype=type)
+    else:
+        animals = Animal.objects.all().order_by('-latinName')
 
-    search_term=''
+    # else:
+    #     return animals == animals
+    #
+    # else:
+    #     animals = animals.filter(reptiletype=type)
+
+
 
 
     return render(request, 'posts/post_list.html', {'animals': animals, 'search_term': search_term, "filter": filter})
