@@ -75,7 +75,7 @@ def post_list(request):
     if ('search' in request.GET):
         search_term = request.GET['search']
         animals = animals.filter(latinName__icontains=search_term)
-    elif('reptiletype' in request.GET):
+    elif('reptiletype' in request.GET and 'reptiletype' != 'X'):
         type = request.GET.get('reptiletype')
         animals = animals.filter(reptiletype=type)
     else:
