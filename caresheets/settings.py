@@ -25,7 +25,7 @@ SECRET_KEY = '$_9ja&6=vwx3cequ4tyh=62y9nqxk6==t&a4eikgq6#zwz*n)e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 # 127.0.0.1
 # codeinstitutecaresheets.herokuapp.com
 # Application definition
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -172,6 +173,8 @@ LOGOUT_REDIRECT_URL = "/"
 #     '/project_three/caresheets/static',
 # ]
 # emaillogin_project/settings.py
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',

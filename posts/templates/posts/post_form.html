@@ -13,6 +13,9 @@
             <form method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
                    {{ form | as_bootstrap }}
+                   {% for author in form %}
+                   <select id="div_id_author" name="author" style="visibility: hidden;">...</select>
+                  {% endfor %}
                    <button type="submit" class="btn btn-info">Save</button>
             </form>
       </div>

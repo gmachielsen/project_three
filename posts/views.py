@@ -64,7 +64,7 @@ def is_valid_param(param):
 
 def post_list(request):
     search_term=''
-    animals = Animal.objects.all().order_by('-latinName')
+    animals = Animal.objects.all().order_by('latinName')
     # reptiles = Animal.objects.all()
     filter = AnimalTypeForm(request.GET)
     print(filter)
