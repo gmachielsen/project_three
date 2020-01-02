@@ -76,10 +76,15 @@
 
 .search {
   background-color: #f8f9fa;
+  width: 100%;
 }
 
 .new {
   justify-content: center;
+}
+
+.new h3 {
+  text-align: center;
 }
 
 .register {
