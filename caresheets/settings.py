@@ -25,7 +25,7 @@ SECRET_KEY = '$_9ja&6=vwx3cequ4tyh=62y9nqxk6==t&a4eikgq6#zwz*n)e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codeinstitutecaresheets.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 # 127.0.0.1
 # codeinstitutecaresheets.herokuapp.com
 # Application definition
@@ -58,6 +58,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# FILE_UPLOAD_HANDLERS = [
+#     'django.core.files.uploadhandler.MemoryFileUploadHandler',
+#     'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+# ]
+
 
 ROOT_URLCONF = 'caresheets.urls'
 
@@ -136,7 +142,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # MEDIA_URL = '/media/'
 # # MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

@@ -3,62 +3,12 @@ from .forms import AnimalForm, AnimalTypeForm
 from django.contrib import messages
 from .models import Animal, AnimalImages
 from django.db.models import Q
-# from django.views.generic.detail import DetailView
 
-# def do_search(request):
-#     posts = Animal.objects.filter(latinName__icontains=request.GET['q'])
-#     return render(request, 'posts/post_list.html', {"posts": posts})
-
-
-# def get_blog_queryset(query=None):
-#     queryset = []
-#     queries = query.split(" ")
-#     for q in queries:
-#         posts = Animal.objects.filter(
-#             Q(latinName__icontains=q) |
-#             Q(shorttext__icontains=q)
-#         ).distinct()
-#
-#         for post in posts:
-#             queryset.append(post)
-#     return list(set(queryset))
-
-# def do_search(request):
-#
-#
-#     animals = Animal.objects.all()
-#
-#     if 'search' in request.GET:
-#         search = request.GET['search']
-#
-#         query_by_name = Q(latinName__contains=search)
-#         query_by_description = Q(shorttext__contains=search)
-#
-#         animals = animals.filter(query_by_latinName | query_by_shorttext)
-#         search_form = AnimalSearchForm(request.GET)
-#
-#     return render(request, 'posts/post_list.html', {'animals': animals, 'search_form': search_form})
-
-# def post_list(request):
-#     context = {}
-#     query = ""
-#     if request.GET:
-#         query = request.GET['q']
-#         context['query'] = str(query)
-#
-#     animals = Animal.objects.all()
-#     context['animals'] = animals
-#     return render(request, 'posts/post_list.html', context)
-# def filter(request):
-#     filter = AnimalTypeForm()
-#     return render(request, 'posts/post_list.html', {"animals": animals})
 
 def index(request):
     animals = Animal.objects.all().order_by('-created')
     return render(request, 'posts/index.html', {"animals": animals})
 
-# def index(request):
-#     return render(request, 'posts/index.html', {})
 def is_valid_param(param):
     return param is not '' and param is not None
 
@@ -68,10 +18,6 @@ def post_list(request):
     # reptiles = Animal.objects.all()
     filter = AnimalTypeForm(request.GET)
     print(filter)
-    # print(type)
-    # if (type == 'X' or None):
-    # if (animals == animals):
-    #     animals = animals.filter()
     if ('search' in request.GET):
         search_term = request.GET['search']
         animals = animals.filter(latinName__icontains=search_term)
@@ -80,16 +26,6 @@ def post_list(request):
         animals = animals.filter(reptiletype=type)
     else:
         animals = Animal.objects.all().order_by('-latinName')
-
-    # else:
-    #     return animals == animals
-    #
-    # else:
-    #     animals = animals.filter(reptiletype=type)
-
-
-
-
     return render(request, 'posts/post_list.html', {'animals': animals, 'search_term': search_term, "filter": filter})
 
 
@@ -97,22 +33,13 @@ def post_detail(request, id):
     animal = Animal.objects.get(pk=id)
     animal.views +=1
     animal.save()
-    # slug = Animal.kwargs.get('slug')
-    # animal = Animal.objects.get(slug=slug)
-# def post_detail(request, id):
-    # animal = Animal.objects.get(pk=slug)
-    # animal_images = AnimalImages.objects.filter(pk=slug)
-
-    # animal = Animal.objects.get(pk=id)
-    # animal_images = AnimalImages.objects.filter(pk=id)
-    # return render(request, 'posts/post_detail.html', {"animal": animal, "animal_images": animal_images})
     return render(request, 'posts/post_detail.html', {"animal": animal})
 
 
 def post_form(request):
 
     if request.method == 'POST':
-        form = AnimalForm(request.POST)
+        form = AnimalForm(request.POST, request.FILES)
 
         if form.is_valid():
             post = form.save(commit=False)
@@ -140,7 +67,7 @@ def edit_post(request, id):
     form = AnimalForm(instance=animal, data=request.GET, files=request.FILES)
 
     if request.method=="POST":
-        form = AnimalForm(request.POST, instance=animal)
+        form = AnimalForm(request.POST, request.FILES, instance=animal)
         if form.is_valid():
             form.save()
             return redirect('post_list')
@@ -161,24 +88,3 @@ def dislike_post(request, id):
     post.dislikes +=1
     post.save()
     return redirect("post_detail", id=post.id)
-# def edit_post(request):
-#     # Load the post we're changing, from the DB
-#     animal = Animal.objects.get(pk=id)
-#     form = AnimalForm(instance=animal, data=request.GET, files=request.FILES)
-#
-#     print('Files : {}'.format(request.Files))
-#     if request.method == "POST":
-#         form = AnimalForm(instance=animal, data=request.GET, files=request.FILES)
-#         return update_post(form)
-#     else:
-#         raise(error)
-#     return render(request, "posts/edit_post.html", {"form": form})
-
-
-# def update_post(form):
-#     # Update the DB with the differences
-#     if form.is_valid():
-#         post = form.save()
-#         return redirect("post_detail", id=post.id)
-#     else:
-#         return render(request, "posts/post_form.html", {"form": form})
