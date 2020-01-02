@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% load bootstrap_tags %}
 {% block title %}
 Profile
+{% endblock %}
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -9,15 +14,15 @@ Profile
   <!-- <div class="col-xs-12">
     <h2 style="text-align: center;">Personal profile</h2>
   </div> -->
-  <div style="background-color: lightgray; list-style: none;" class="col-xs-12 col-md-2"
+  <div class="options" class="col-xs-12 col-md-2"
   <ul >
     <br/>
     <li class="nav-item">
-      <a style="background-color: gray" type="button" class="nav-link button btn" href="{% url 'custom_password' %}">Change password</a>
+      <a type="button" class="nav-link button btn" href="{% url 'custom_password' %}">Change password</a>
     </li>
     <br/>
     <li class="nav-item">
-      <a style="background-color: gray" type="button" class="nav-link button btn"  href="{% url 'post_form' %}">Post Caresheet</a>
+      <a type="button" class="nav-link button btn"  href="{% url 'post_form' %}">Post Caresheet</a>
     </li>
     </ul>
   </div>
@@ -44,7 +49,7 @@ Profile
 
               <!-- Modal content-->
               <div class="modal-content">
-                <div style="text-align: center" class="modal-header">
+                <div class="modal-header">
                   <h4 >{{animal.latinName}}</h4>
                 </div>
                 <div class="modal-body">

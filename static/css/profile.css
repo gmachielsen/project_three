@@ -1,0 +1,12 @@
+.option {
+  background-color: lightgray;
+  list-style: none;
+}
+
+.nav-item a {
+  background-color: gray;
+}
+
+.modal-header {
+  text-align: center;
+}
