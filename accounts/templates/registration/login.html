@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load bootstrap_tags %}
 {% load socialaccount %}
 {% providers_media_js %}
 {% block title %}
 Login
+{% endblock %}
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
 {% block content %}
 <br/>
@@ -11,10 +15,10 @@ Login
 <br/>
 <div class="row justify-content-center">
   <div class="col-xs-12 col-md-4">
-    <div style="justify-content: center;" class="card">
+    <div class="card">
       <div class="card-body">
 
-        <h3 style="text-align: center;">Login</h3>
+        <h3>Login</h3>
         <form class="form-group" action="" method="post">
           {% csrf_token %}
           {{ form | as_bootstrap }}
@@ -30,14 +34,7 @@ Login
           <button type="submit" class="btn btn-success">Login</button>
           <a href="{% url 'password_reset' %}">Forgot your password?</a>
         </form>
-        <button style="background-color: #4267b2;
-        border: none;
-        color: white;
-        text-decoration: none;
-        text-align: center;
-        padding: 15px 32px;
-        display: inline-block;
-        font-size: 16px;"><a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook Connect</a></button>
+        <button><a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook Connect</a></button>
 
 
       </div>
