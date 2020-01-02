@@ -13,19 +13,19 @@
 <div class="col-xs-12 col-md-3">
     <br/>
     <br/>
-<div style="background-color: lightgray; padding: 30px 20px;"  class="searchbox">
-  <h3 style="text-align: center;">Filter</h3>
-<label style="justify-content: center">Search</label>
-<form style="background-color: lightgray;" class="form-inline my-3 my-lg-0">
+<div class="searchbox">
+  <h3>Filter</h3>
+<label>Search</label>
+<form class="form-inline my-3 my-lg-0">
  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
  <button class="btn btn-outline-success my-0 my-sm-0" type="submit">Search</button>
 </form>
 <br/>
-<label style="text-align: center">Choose type of reptile</label>
-<form style="background-color: lightgray;" method="GET" class="form-inline">
+<label class="type">Choose type of reptile</label>
+<form method="GET" class="form-inline">
      {% csrf_token %}
   <!-- <select class="form-control mr-sm-2" name="reptiletype"><option value="{{ filter.reptiletype }}"</select> -->
-    <div style="select {border: none;}" class="form-control mr-sm-2" name="reptiletype">{{ filter.reptiletype }}</div>
+    <div class="reptile form-control mr-sm-2" name="reptiletype">{{ filter.reptiletype }}</div>
 
   <button class="btn btn-outline-success my-0 my-sm-0" type="submit">Search</button>
 </form>
@@ -35,7 +35,7 @@
 <br/>
 <br/>
 
-    <div style="text-aling: center;" class="col-xs-12 col-md-9 justify-content-center">
+    <div class="list col-xs-12 col-md-9 justify-content-center">
       <br/>
       <br/>
         <div class="row">
@@ -48,7 +48,7 @@
             <div class="picture">
               <img style="width: 100%" src="{{MEDIA_URL}}{{animal.image}}" alt="">
             </div>
-            <h6 style="text-decoration: none; text-align: center;">{{animal.latinName}}</h6>
+            <h6>{{animal.latinName}}</h6>
             </a>
           </div>
         </div>

@@ -18,3 +18,36 @@
 img {
   width: 100% !important;
 }
+
+.searchbox {
+  background-color: lightgray;
+  padding: 30px 20px;"
+}
+
+.searchbox h3 {
+  text-align: center;
+}
+
+.searchbox label {
+  justify-content: center;
+}
+
+form {
+  background-color: lightgray;
+}
+
+.type {
+  text-align: center;
+}
+
+.reptile #id_reptiletype {
+  border: none !important;
+}
+
+.list {
+  text-align: center;
+}
+
+h6 {
+  text-decoration: none; text-align: center;
+}
