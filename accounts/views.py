@@ -8,6 +8,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from posts.models import Animal
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 def register(request):
     if request.method == "POST":
@@ -29,9 +31,15 @@ def register(request):
 
     return render(request, "registration/register.html", {"form": form})
 
+
 def profile(request):
-    # user = User
-    animal_caresheets = Animal.objects.filter(author_id=request.user)
+    try:
+        animal_caresheets = Animal.objects.filter(author_id=request.user)
+    except animal_caresheets.DoesNotExist:
+        pass
+
+
+
     return render(request, "profile/profile.html", {"animal_caresheets": animal_caresheets})
 
 
