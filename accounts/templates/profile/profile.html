@@ -43,8 +43,8 @@ Profile
           <h4>{{animal.latinName}}</h4>
           </a>
           <a class="button btn" href="{% url 'edit_post' animal.id %}">update</a>
-          <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete Caresheet</a>
-          <div id="myModal" class="modal fade" role="dialog">
+          <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal-{{ animal.id }}">Delete Caresheet</a>
+          <div id="myModal-{{ animal.id }}" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
               <!-- Modal content-->
