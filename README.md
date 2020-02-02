@@ -64,6 +64,22 @@ this is also a form where registered users can update their password once the pa
 
 # update password complete
 Is a success page of the update password page.
+
+
+# Apps and folders
+  - accounts
+  
+  - caresheets
+  
+  - media
+  - posts
+  - search
+  - static
+  - staticfiles
+  - templates
+
+# Accounts
+
 UX and UI design ideas were taken by looking at other online shop examples, like Shopify themes, ASOS, New Look, Missguided, PrettyLittleThing, River Island, Forever 21 etc.
 
 Shop logo was created using Adobe Illustrator.
