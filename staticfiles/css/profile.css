@@ -1,6 +1,8 @@
 .options {
   background-color: lightgray !important;
   list-style: none !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .options li a {
@@ -30,4 +32,27 @@
 
 img {
   width: 100% !important;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  justify-content: center;
+}
+
+.item a {
+  text-transform: uppercase !important;
+  border-radius: 0% !important;
+  border: 1px solid black;
+  background-color: white !important;
+  color: black !important;
+  width: 50vw !important;
+}
+
+.item a:hover {
+  background-color: gray !important;
+  color: white !important;
 }

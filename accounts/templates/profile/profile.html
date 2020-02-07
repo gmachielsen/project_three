@@ -17,17 +17,17 @@ Profile
   <div class="options" class="col-xs-12 col-md-2"
   <ul >
     <br/>
-    <li class="nav-item">
-      <a type="button" class="nav-link button btn" href="{% url 'custom_password' %}">Change password</a>
+    <li class="item">
+      <a type="button" class="button btn" href="{% url 'custom_password' %}">Change password</a>
     </li>
     <br/>
-    <li class="nav-item">
-      <a type="button" class="nav-link button btn"  href="{% url 'post_form' %}">Post Caresheet</a>
+    <li class="item">
+      <a type="button" class="button btn"  href="{% url 'post_form' %}">Post Caresheet</a>
     </li>
     </ul>
   </div>
 
-  <div class="col-xs-12 col-md-10 justify-content-center">
+  <div class="col-xs-12 justify-content-center">
     <br/>
     <br/>
   <div class="row">
@@ -42,8 +42,10 @@ Profile
           </div>
           <h4>{{animal.latinName}}</h4>
           </a>
-          <a class="button btn" href="{% url 'edit_post' animal.id %}">update</a>
-          <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal-{{ animal.id }}">Delete Caresheet</a>
+          <div class="buttons">
+            <a class="button btn btn-info" href="{% url 'edit_post' animal.id %}">update</a>
+            <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal-{{ animal.id }}">Delete Caresheet</a>
+          </div>
           <div id="myModal-{{ animal.id }}" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
