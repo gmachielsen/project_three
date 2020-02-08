@@ -77,22 +77,20 @@
             <p><span class="boldtext">Likes:</span> {{animal.likes}}</p>
             <p><span class="boldtext">Dislikes:</span> {{animal.dislikes}}</p>
         </div>
-        <form method="POST" enctype="multipart/form-data" action="{% url 'like_post' animal.id%}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-default">Like</button>
-        </form>
-        <form method="POST" enctype="multipart/form-data" action="{% url 'dislike_post' animal.id%}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-default">Unlike</button>
-        </form>
-
+        <div style="display: flex; flex-direction: row" class="likes">
+          <form style="margin:10px;" method="POST" enctype="multipart/form-data" action="{% url 'like_post' animal.id%}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-info">Like</button>
+          </form>
+          <form style="margin:10px;" method="POST" enctype="multipart/form-data" action="{% url 'dislike_post' animal.id%}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-info">Unlike</button>
+          </form>
+        </div>
       </div>
-    <div class="col-xs-0 col-md-1">
-    </div>
   </div>
   <br/>
   <br/>
   <br/>
-<!-- {{ animal.reptiletype }}
-{{ animal.cites }} -->
+
 {% endblock %}

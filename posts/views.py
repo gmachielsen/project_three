@@ -26,6 +26,7 @@ def post_list(request):
         animals = animals.filter(reptiletype=type)
     else:
         animals = Animal.objects.all().order_by('latinName')
+        
     return render(request, 'posts/post_list.html', {'animals': animals, 'search_term': search_term, "filter": filter})
 
 
