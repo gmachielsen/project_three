@@ -100,4 +100,5 @@ staticfiles are the blueprint of static.
 templates is used to store the base template.
 
 
-
+# Creditations
+I would like to give credits to stack overflow for providing my insights in how to get a working filter! I also want to thank my mentor Brian Macharia, who helped me out with an authentification issue and a issue of deleting a post. The footer of this website is from MDBootstrap the navbar from getbootstrap.com
